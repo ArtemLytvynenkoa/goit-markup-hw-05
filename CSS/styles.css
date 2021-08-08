@@ -20,6 +20,8 @@
      --portfolio-list-border: #EEEEEE;
      --main-icons-color: #AFB1B8;
      --bgc-social-icon-color: #44454E;
+     --bgc-text-wwd-section-color: rgba(47, 48, 58, 0.8);
+     --bd-color: rgba(0, 0, 0, 0.2);
 
      
  }
@@ -150,12 +152,17 @@ img {
 
 .site-nav .link {
     padding: 32px 0;
+    
+    position: relative;
 
     color: var(--title-text-color);
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -170,18 +177,30 @@ img {
     color: var(--accent-color);
 }
 
+.site-nav .link.current::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    margin-top: 28px;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background:  var(--accent-color);
+}
+
 .auth-nav{
     display: flex;
     margin-left: auto;
 }
 
-/* .auth-nav .item {
+ .auth-nav .item {
     margin-right: 50px;
 }
 
 .auth-nav .item:last-child {
     margin-right: 0;
-} */
+} 
 
 .auth-nav .item:not(:last-child) {
     margin-right: 50px;
@@ -195,6 +214,10 @@ img {
     letter-spacing: 0.02em;
     display: flex;
     align-items: center;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-envelope,
@@ -202,7 +225,7 @@ img {
     margin-right: 10px;
 
     fill: currentColor;
-}
+} 
 
 /* Hero content */
 
@@ -250,11 +273,68 @@ img {
 
     padding: 10px 32px;
     border: none;
+
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:focus,
 .hero-button:hover {
     background-color: var(--accent-color);
+}
+
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--bd-color);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 528px;
+    min-height: 581px;
+
+    background-color: var(--main-background-color);
+}
+.modal .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #E6E6E6;
+    background-color: var(--main-background-color);
+    cursor: pointer;
+}
+
+.modal .close-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
 }
 
 /* What We offer */
@@ -344,11 +424,30 @@ img {
 
 .wwd-list .item {
     max-width: 370px;
+    position: relative;
 }
 
 .wwd-list .item:not(:last-child) {
     margin-right: 30px;
 }
+
+.wwd-text {
+    display: block;
+    width: 370px;
+    padding: 27px 0;
+    background-color: var(--bgc-text-wwd-section-color);
+    position: absolute;
+    bottom: 0;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--main-background-color);
+
+}
+
 
 /* Team section styles */
 
@@ -412,6 +511,10 @@ img {
     align-items: center;
 
     color: var(--main-icons-color);
+
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-section .social-link:hover,
@@ -445,6 +548,10 @@ img {
     border-radius: 4px;
     
     color: var(--main-icons-color);
+    
+    transition-property: border-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link.customer-logos:hover,
@@ -485,6 +592,10 @@ line-height: 1.71;
 
 .auth-footer .link {
     color: var(--footer-link-color)
+
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -536,6 +647,10 @@ line-height: 1.71;
 
     color: var(--main-background-color);
     background-color: var(--bgc-social-icon-color);
+
+    transition-property: border-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .social-logo:hover,
@@ -572,6 +687,10 @@ line-height: 1.71;
 .hero-button {
     cursor: pointer;
     border-radius: 4px;
+
+    transition-property: background-color, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio .button:hover,
@@ -605,6 +724,10 @@ line-height: 1.71;
 .project-list .link {
     display: block;
     border: 1px solid transparent;
+
+    transition-property: border, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-list .link:hover {
@@ -612,6 +735,35 @@ line-height: 1.71;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
      0px 4px 4px rgba(0, 0, 0, 0.06),
       1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.project-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-text {
+    position: absolute;
+    transform: translateY(0%);
+    
+    width: 100%;
+    height: 100%;
+    padding: 63px 24px;
+    background-color: #2196F3E5;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.56;
+
+    color: var(--main-background-color);
+
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-list .link:hover .project-text {
+    transform: translateY(-100%);
 }
 
 .project-list .title-text {
@@ -635,6 +787,15 @@ line-height: 1.71;
     font-size: 16px;
     line-height: 1.88;
 }
+
+.project-list .text,
+.project-list .title,
+.project-list .img-block {
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 
 .project-list .text:focus,
 .project-list .text:hover,
