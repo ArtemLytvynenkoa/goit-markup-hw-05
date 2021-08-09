@@ -231,7 +231,10 @@ img {
 /* Hero content */
 
 .hero {
+    width: 1600px;
     height: 600px;
+    margin-right: auto;
+    margin-left: auto;
     background-color: var(--hero-background-color);
     background-image: 
         linear-gradient(
@@ -297,7 +300,7 @@ img {
 
     opacity: 1;
     
-    transition: opacity var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--transition-duration) var(--transition-timing-function);
    
 }
 
@@ -311,7 +314,10 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    transition: transform var(--transition-duration) var(--transition-timing-function);
+    transition-property: transform, scale;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+    
 
     min-width: 528px;
     min-height: 581px;
@@ -522,8 +528,8 @@ img {
     color: var(--main-icons-color);
 
     transition-property: background-color, color;
-    transition-duration: var(--transition-duration), var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function),var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
    
 }
 
@@ -560,8 +566,8 @@ img {
     color: var(--main-icons-color);
     
     transition-property: border-color, color;
-    transition-duration: var(--transition-duration), var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function),var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 .link.customer-logos:hover,
@@ -601,11 +607,11 @@ line-height: 1.71;
 }
 
 .auth-footer .link {
-    color: var(--footer-link-color)
+    color: var(--footer-link-color);
 
     transition-property: background-color, color;
-    transition-duration: var(--transition-duration), var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function),var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 
@@ -699,8 +705,8 @@ line-height: 1.71;
     border-radius: 4px;
 
     transition-property: background-color, color, box-shadow;
-    transition-duration: var(--transition-duration), var(--transition-duration), var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function), var(--transition-timing-function), var(--transition-timing-function);    
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);    
 }
 
 .portfolio .button:hover,
@@ -736,8 +742,8 @@ line-height: 1.71;
     border: 1px solid transparent;
 
     transition-property: border-color, box-shadow;
-    transition-duration: var(--transition-duration), var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function),var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 .project-list .link:hover {
@@ -803,8 +809,8 @@ line-height: 1.71;
 .project-list .img-block {
     
     transition-property: background-color, color;
-    transition-duration: var(--transition-duration), var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function),var(--transition-timing-function);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 
